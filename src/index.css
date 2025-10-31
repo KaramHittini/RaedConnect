@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*This styling is for the Get Started and the Explore Community buttons*/
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 28px;
+  border: 2px solid transparent;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  color: black;
+  box-shadow: 0 0 0 2px black;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 18px;
+  fill: black;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 14px;
+}
+
+.animated-button .arr-2 {
+  left: -20%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-8px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 8px rgb(78, 78, 78); /* outer ring turns black */
+  background-color: white;
+  color: black;
+  border-radius: 50px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -20%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 14px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(8px);
+}
+
+.animated-button:hover svg {
+  fill: black;
+}
+
+.animated-button:active {
+  scale: 0.96;
+  box-shadow: 0 0 0 3px black;
+}
+
+.animated-button:hover .circle {
+  width: 180px;
+  height: 180px;
+  opacity: 0.08;
+}
+
+/*Bottom is for the Login and the Signup buttons inside the navbar*/
+
+.btn {
+  width: 6.5em;
+  height: 2.3em;
+  margin: 0.5em;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+  text-decoration: none;
+}
+
+.btn:hover {
+  color: black;
+}
+
+.btn:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+.btn:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+}
+
+html { color-scheme: light dark; }
+body { @apply bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100; }
+
+
+/* rc-input: consistent input styling (white in light, tinted in dark) */
+.rc-input { @apply w-full rounded-2xl px-4 py-3 bg-white text-zinc-900 placeholder-zinc-500 border border-zinc-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-zinc-900/10; }
+.dark .rc-input { @apply bg-zinc-900/60 text-white placeholder-zinc-400 border-white/10 shadow-none ring-white/20; }
+
+/* rc-select drop-down */
+.rc-select { @apply rc-input pr-10 appearance-none; }
+.rc-textarea { @apply rc-input min-h-32; }
